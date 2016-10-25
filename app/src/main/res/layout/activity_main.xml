@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
-            name="viewModel"
+            name="contentViewModel"
             type="com.appspot.pistatium.dotstream.viewmodels.ContentViewModel"></variable>
     </data>
 
@@ -12,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/content_view"></include>
+        <include layout="@layout/content_view"
+            app:viewModel="@{contentViewModel}"></include>
     </RelativeLayout>
 
 </layout>
