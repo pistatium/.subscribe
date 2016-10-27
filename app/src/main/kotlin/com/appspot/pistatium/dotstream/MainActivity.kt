@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity(), ContentViewModelInterface.MainView {
         setContentView(R.layout.activity_main)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         val content = ContentViewModel(this, applicationContext)
+
         binding.contentViewModel = content
     }
 }

@@ -15,5 +15,5 @@ interface ContentViewModelInterface {
 }
 
 class ContentViewModel(val mainView: ContentViewModelInterface.MainView, val context: Context) : ContentViewModelInterface {
-
+    val test = "test"
 }
