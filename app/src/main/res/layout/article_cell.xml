@@ -3,17 +3,16 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="contentViewModel"
-            type="com.appspot.pistatium.dotstream.viewmodels.ContentViewModel" />
+            name="article"
+            type="com.appspot.pistatium.dotstream.models.Article" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            bind:articles="@{contentViewModel.articles}"
-            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{article.title}"/>
     </RelativeLayout>
 </layout>
