@@ -1,12 +1,14 @@
 package com.appspot.pistatium.dotstream.viewmodels
 
 import android.content.Context
+import com.appspot.pistatium.dotstream.models.Article
+import java.util.*
 
 
 interface ContentViewModelInterface {
     interface MainView {
         fun getContext(): Context
-        fun loadData()
+        fun loadData(articles: List<Article>)
     }
 
     interface ViewModel {
@@ -18,6 +20,12 @@ class ContentViewModel(val mainView: ContentViewModelInterface.MainView, val con
     var test: String = ""
 
     init {
-
+        val articles = ArrayList<Article>()
+        articles.add(Article(title="test", url="https://google.com"))
+        articles.add(Article(title="test2", url="https://google.com"))
+        articles.add(Article(title="test3", url="https://google.com"))
+        articles.add(Article(title="test4", url="https://google.com"))
+        articles.add(Article(title="test5", url="https://google.com"))
+        mainView.loadData(articles)
     }
 }

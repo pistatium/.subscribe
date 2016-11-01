@@ -14,11 +14,6 @@ import com.android.databinding.library.baseAdapters.BR
 import com.appspot.pistatium.dotstream.R
 import com.appspot.pistatium.dotstream.models.Article
 
-@BindingAdapter("articles")
-fun setAdapter(recycleView: RecyclerView, articles: List<Article>) {
-    val adapter = ArticleAdapter(articles)
-}
-
 
 class ArticleAdapter(val articles: List<Article>): RecyclerView.Adapter<ArticleAdapter.Companion.ItemViewHolder>() {
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
