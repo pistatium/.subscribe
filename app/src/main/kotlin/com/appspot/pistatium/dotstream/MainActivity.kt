@@ -6,37 +6,34 @@ import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
+import android.util.Log
+import android.view.View
 import com.appspot.pistatium.dotstream.adapters.ArticleAdapter
 import com.appspot.pistatium.dotstream.databinding.ActivityMainBinding
 import com.appspot.pistatium.dotstream.models.Article
 import com.appspot.pistatium.dotstream.viewmodels.ContentViewModel
-import com.appspot.pistatium.dotstream.viewmodels.ContentViewModelInterface
+import java.util.*
 import kotlin.properties.Delegates
 
-class MainActivity : AppCompatActivity(), ContentViewModelInterface.MainView {
+class MainActivity : AppCompatActivity() {
 
-    private var binding: ActivityMainBinding by Delegates.notNull<>()
+
+    private var binding: ActivityMainBinding by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        val content = ContentViewModel(this, applicationContext)
+        val content = ContentViewModel(applicationContext)
         binding.contentViewModel = content
-    }
-
-    override fun loadData(articles: Article) {
-        binding.contentViewModel.articles = articles
-
-    }
-
-    override fun getContext(): Context {
-        return this
+        content.articles = ArrayList<Article>()
     }
 }
 
-@BindingAdapter("articles")
-fun setAdapter(recycleView: RecyclerView, articles: List<Article>) {
+@BindingAdapter("bind:articles")
+fun RecyclerView.setArticles(articles: List<Article>) {
+    Log.d("Binding", "Called setAdapter")
     val adapter = ArticleAdapter(articles)
-    recycleView.adapter = adapter
+    this.adapter = adapter
 }
+
