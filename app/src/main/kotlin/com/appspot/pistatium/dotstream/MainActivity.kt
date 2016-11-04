@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.View
 import com.appspot.pistatium.dotstream.adapters.ArticleAdapter
 import com.appspot.pistatium.dotstream.databinding.ActivityMainBinding
 import com.appspot.pistatium.dotstream.models.Article
@@ -25,10 +24,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         val content = ContentViewModel(applicationContext)
-        binding.contentViewModel = content
         content.articles = ArrayList<Article>()
+        binding.contentViewModel = content
+        binding.notifyChange()
+
     }
 }
+
 
 @BindingAdapter("bind:articles")
 fun RecyclerView.setArticles(articles: List<Article>) {
