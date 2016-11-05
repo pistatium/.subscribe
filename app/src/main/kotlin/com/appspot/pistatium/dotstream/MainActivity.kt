@@ -5,8 +5,11 @@ import android.databinding.BindingAdapter
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.appspot.pistatium.dotstream.adapters.ArticleAdapter
 import com.appspot.pistatium.dotstream.databinding.ActivityMainBinding
 import com.appspot.pistatium.dotstream.models.Article
@@ -22,20 +25,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         val content = ContentViewModel(applicationContext)
-        content.articles = ArrayList<Article>()
+        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.contentViewModel = content
         binding.notifyChange()
+    }
+}
 
+@BindingAdapter("app:articles")
+fun RecyclerView.setArticles(articles: List<Article>?) {
+    Log.d("Binding", "Called setAdapter")
+    Log.d("Binding", "a: {$articles}")
+    this.layoutManager = LinearLayoutManager(context)
+    articles?.let {
+        val adapter = ArticleAdapter(articles)
+        this.adapter = adapter
     }
 }
 
 
-@BindingAdapter("bind:articles")
-fun RecyclerView.setArticles(articles: List<Article>) {
-    Log.d("Binding", "Called setAdapter")
-    val adapter = ArticleAdapter(articles)
-    this.adapter = adapter
-}
 

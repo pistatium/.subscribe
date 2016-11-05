@@ -7,15 +7,12 @@ import java.util.*
 
 
 class ContentViewModel(val context: Context) {
-    var test: String = ""
+    var test: String = "test"
 
     var articles = ArrayList<Article>()
-
-    init {
-        articles.add(Article(title="test", url="https://google.com"))
-        articles.add(Article(title="test2", url="https://google.com"))
-        articles.add(Article(title="test3", url="https://google.com"))
-        articles.add(Article(title="test4", url="https://google.com"))
-        articles.add(Article(title="test5", url="https://google.com"))
-    }
+//            .apply {
+//        add(Article(title="test", url="https://google.com"))
+//        add(Article(title="test", url="https://google.com"))
+//        add(Article(title="test", url="https://google.com"))
+//    }
 }
