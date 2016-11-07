@@ -28,7 +28,10 @@ class MainActivity : AppCompatActivity() {
         val content = ContentViewModel(applicationContext)
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.contentViewModel = content
-        binding.notifyChange()
+        content.articles.add(Article(title="test", url="https://google.com"))
+        content.articles.add(Article(title="test", url="https://google.com"))
+        content.articles.add(Article(title="test", url="https://google.com"))
+        binding.notifyPropertyChanged(BR.article)
     }
 }
 
