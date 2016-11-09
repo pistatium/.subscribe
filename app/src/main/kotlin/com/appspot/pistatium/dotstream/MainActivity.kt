@@ -8,13 +8,10 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.appspot.pistatium.dotstream.adapters.ArticleAdapter
 import com.appspot.pistatium.dotstream.databinding.ActivityMainBinding
 import com.appspot.pistatium.dotstream.models.Article
 import com.appspot.pistatium.dotstream.viewmodels.ContentViewModel
-import java.util.*
 import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         content.articles.add(Article(title="test", url="https://google.com"))
         content.articles.add(Article(title="test", url="https://google.com"))
         binding.notifyPropertyChanged(BR.article)
+
+        content.text = "Bind test"
+        binding.notifyPropertyChanged(BR.contentViewModel)
+        binding.notifyPropertyChanged(BR.viewModel)
+        binding.notifyPropertyChanged(BR._all)
     }
 }
 
@@ -45,6 +47,3 @@ fun RecyclerView.setArticles(articles: List<Article>?) {
         this.adapter = adapter
     }
 }
-
-
-
