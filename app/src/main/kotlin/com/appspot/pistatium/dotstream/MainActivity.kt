@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val content = ContentViewModel(applicationContext)
+        content.text = "Bind test"
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.contentViewModel = content
         content.articles.add(Article(title="test", url="https://google.com"))
@@ -30,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         content.articles.add(Article(title="test", url="https://google.com"))
         binding.notifyPropertyChanged(BR.article)
 
-        content.text = "Bind test"
         binding.notifyPropertyChanged(BR.contentViewModel)
         binding.notifyPropertyChanged(BR.viewModel)
         binding.notifyPropertyChanged(BR._all)
