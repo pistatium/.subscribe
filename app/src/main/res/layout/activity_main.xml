@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/content_view" />
+        <include layout="@layout/content_view"
+            bind:viewModel="@{contentViewModel}"/>
 
     </RelativeLayout>
 

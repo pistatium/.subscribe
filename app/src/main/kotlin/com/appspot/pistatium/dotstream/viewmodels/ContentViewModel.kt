@@ -7,6 +7,5 @@ import java.util.*
 
 
 class ContentViewModel(val context: Context) {
-    var text: String = ""
     var articles = ArrayList<Article>()
 }
