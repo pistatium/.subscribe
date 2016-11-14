@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val content = ContentViewModel(applicationContext)
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.contentViewModel = content
+
         content.articles.add(Article(title="test", url="https://google.com"))
         content.articles.add(Article(title="test", url="https://google.com"))
         content.articles.add(Article(title="test", url="https://google.com"))
@@ -34,8 +35,6 @@ class MainActivity : AppCompatActivity() {
 
 @BindingAdapter("app:articles")
 fun RecyclerView.setArticles(articles: List<Article>?) {
-    Log.d("Binding", "Called setAdapter")
-    Log.d("Binding", "a: {$articles}")
     this.layoutManager = LinearLayoutManager(context)
     articles?.let {
         val adapter = ArticleAdapter(articles)

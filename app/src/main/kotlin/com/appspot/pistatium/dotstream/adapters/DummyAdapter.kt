@@ -28,8 +28,12 @@ class ArticleAdapter(val articles: List<Article>): RecyclerView.Adapter<ArticleA
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.article_cell, parent, false)
-
+        val article = articles.get()
         return ItemViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int, payloads: MutableList<Any>?) {
+        //
     }
 
     companion object {
