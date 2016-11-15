@@ -7,7 +7,6 @@
             type="com.appspot.pistatium.dotstream.models.Article" />
     </data>
     <RelativeLayout
-        android:background="#aaaaaa"
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
