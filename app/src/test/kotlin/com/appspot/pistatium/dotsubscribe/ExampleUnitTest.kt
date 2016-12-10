@@ -1,4 +1,4 @@
-package com.appspot.pistatium.dotstream
+package com.appspot.pistatium.dotsubscribe
 
 import org.junit.Test
 

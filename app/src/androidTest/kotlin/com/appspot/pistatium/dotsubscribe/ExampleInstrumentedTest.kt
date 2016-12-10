@@ -1,4 +1,4 @@
-package com.appspot.pistatium.dotstream
+package com.appspot.pistatium.dotsubscribe
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

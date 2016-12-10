@@ -48,3 +48,6 @@ captures/
 
 # Keystore files
 *.jks
+
+# Security files
+app/google-services.json
