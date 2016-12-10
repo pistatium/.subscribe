@@ -1,4 +1,4 @@
-package com.appspot.pistatium.dotstream.adapters
+package com.appspot.pistatium.dotsubscribe.adapters
 
 import android.databinding.BindingAdapter
 import android.databinding.DataBindingUtil
@@ -11,8 +11,8 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import com.android.databinding.library.baseAdapters.BR
-import com.appspot.pistatium.dotstream.R
-import com.appspot.pistatium.dotstream.models.Article
+import com.appspot.pistatium.dotsubscribe.R
+import com.appspot.pistatium.dotsubscribe.models.Article
 
 
 class ArticleAdapter(val articles: List<Article>): RecyclerView.Adapter<ArticleAdapter.Companion.ItemViewHolder>() {

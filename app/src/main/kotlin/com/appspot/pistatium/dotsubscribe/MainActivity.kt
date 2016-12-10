@@ -1,4 +1,4 @@
-package com.appspot.pistatium.dotstream
+package com.appspot.pistatium.dotsubscribe
 
 import android.databinding.BindingAdapter
 import android.databinding.DataBindingUtil
@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.appspot.pistatium.dotstream.adapters.ArticleAdapter
-import com.appspot.pistatium.dotstream.databinding.ActivityMainBinding
-import com.appspot.pistatium.dotstream.models.Article
-import com.appspot.pistatium.dotstream.viewmodels.ContentViewModel
+import com.appspot.pistatium.dotsubscribe.adapters.ArticleAdapter
+import com.appspot.pistatium.dotsubscribe.databinding.ActivityMainBinding
+import com.appspot.pistatium.dotsubscribe.models.Article
+import com.appspot.pistatium.dotsubscribe.viewmodels.ContentViewModel
 import kotlin.concurrent.thread
 import kotlin.properties.Delegates
 

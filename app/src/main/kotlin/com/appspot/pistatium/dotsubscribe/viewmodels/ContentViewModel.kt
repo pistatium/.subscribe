@@ -1,7 +1,7 @@
-package com.appspot.pistatium.dotstream.viewmodels
+package com.appspot.pistatium.dotsubscribe.viewmodels
 
 import android.content.Context
-import com.appspot.pistatium.dotstream.models.Article
+import com.appspot.pistatium.dotsubscribe.models.Article
 import java.util.*
 
 

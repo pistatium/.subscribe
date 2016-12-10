@@ -5,7 +5,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com.appspot.pistatium.dotstream"
+        applicationId "com.appspot.pistatium.dotsubscribe"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
