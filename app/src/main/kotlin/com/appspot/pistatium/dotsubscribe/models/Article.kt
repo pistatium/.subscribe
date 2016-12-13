@@ -1,4 +1,7 @@
 package com.appspot.pistatium.dotsubscribe.models
 
+import com.google.firebase.database.IgnoreExtraProperties
 
-data class Article(val title: String, val url: String)
+
+@IgnoreExtraProperties
+data class Article(var title: String = "", var url: String = "")
