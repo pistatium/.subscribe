@@ -12,6 +12,7 @@ import com.appspot.pistatium.dotsubscribe.databinding.ActivityMainBinding
 import com.appspot.pistatium.dotsubscribe.models.Article
 import com.appspot.pistatium.dotsubscribe.viewmodels.ContentViewModel
 import com.google.firebase.database.*
+import java.util.*
 import kotlin.concurrent.thread
 import kotlin.properties.Delegates
 
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val content = ContentViewModel(applicationContext)
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        binding.contentViewModel = content
 
         val database = FirebaseDatabase.getInstance()
         // TODO:
@@ -34,10 +36,11 @@ class MainActivity : AppCompatActivity() {
         val latest_news = database.reference.child(today).child(current)
         latest_news.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                val articles =  ArrayList<Article>()
                 snapshot.children
                         .map { it.getValue(Article::class.java) }
-                        .forEach { content.articles.add(it) }
-                binding.contentViewModel = content
+                        .forEach { articles.add(it) }
+                content.articles = articles
             }
             override fun onCancelled(p0: DatabaseError?) { }
 
