@@ -2,7 +2,6 @@ package com.appspot.pistatium.dotsubscribe
 
 import android.databinding.BindingAdapter
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -11,11 +10,14 @@ import com.appspot.pistatium.dotsubscribe.databinding.ActivityMainBinding
 import com.appspot.pistatium.dotsubscribe.models.Article
 import com.appspot.pistatium.dotsubscribe.models.ArticleModel
 import com.appspot.pistatium.dotsubscribe.viewmodels.ContentViewModel
+import com.trello.rxlifecycle.android.ActivityEvent
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity
+import com.trello.rxlifecycle.kotlin.bindUntilEvent
 import java.util.*
 import kotlin.properties.Delegates
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : RxAppCompatActivity() {
 
     private var binding: ActivityMainBinding by Delegates.notNull()
 
@@ -26,9 +28,11 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.contentViewModel = content
 
-        ArticleModel().getLatest().subscribe {
-            content.articles = ArrayList(it)
-        }
+        ArticleModel().getLatest()
+                .bindUntilEvent(this, ActivityEvent.PAUSE)
+                .subscribe {
+                    content.articles = ArrayList(it)
+                }
     }
 }
 

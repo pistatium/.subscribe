@@ -45,10 +45,16 @@ dependencies {
     compile "io.reactivex:rxjava:1.1.0"
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxkotlin:0.60.0'
+    compile 'com.trello:rxlifecycle:1.0'
+    compile 'com.trello:rxlifecycle-components:1.0'
+    compile 'com.trello:rxlifecycle-kotlin:1.0'
 
     // For Test
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile('com.trello:rxlifecycle:1.0', {
+        exclude module: 'app'
     })
     testCompile 'junit:junit:4.12'
 
