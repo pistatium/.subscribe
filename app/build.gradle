@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com.appspot.pistatium.dotstream"
+        applicationId "com.appspot.pistatium.dotsubscribe"
         minSdkVersion 19
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,17 +29,32 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:24.4.0'
 
     // RecycleView
-    compile 'com.android.support:recyclerview-v7:23.0.+'
+    compile 'com.android.support:recyclerview-v7:24.0.+'
 
     // DataBinding
     kapt 'com.android.databinding:compiler:2.2.2'
 
+    // Firebase
+    compile 'com.google.firebase:firebase-core:9.6.1'
+    compile 'com.google.firebase:firebase-database:9.6.1'
+
+    // Rx
+    compile "io.reactivex:rxjava:1.1.0"
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxkotlin:0.60.0'
+    compile 'com.trello:rxlifecycle:1.0'
+    compile 'com.trello:rxlifecycle-components:1.0'
+    compile 'com.trello:rxlifecycle-kotlin:1.0'
+
     // For Test
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile('com.trello:rxlifecycle:1.0', {
+        exclude module: 'app'
     })
     testCompile 'junit:junit:4.12'
 
@@ -52,3 +67,5 @@ kapt {
 repositories {
     mavenCentral()
 }
+
+apply plugin: 'com.google.gms.google-services'
